@@ -12,6 +12,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse_lazy,reverse
 from django.contrib.auth import authenticate, login,logout
 from main.views import *
+from django.contrib.auth.decorators import login_required
+from django.contrib import auth
 
 def register(request):
     try:
@@ -35,10 +37,10 @@ def register(request):
             
             if Account.objects.filter(email=email).exists():
                 messages.warning(request, 'Email already exists')
-                return redirect('/home')
+                return redirect('/register')
             if Account.objects.filter(email=email, is_active=False).exists():
                 messages.warning(request, 'Email already exists')
-                return redirect('/home')
+                return redirect('/register')
                 
                 
             user = Account.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username,password=password,)
@@ -68,16 +70,40 @@ def register(request):
             send_email = EmailMessage(mail_subject, message, to=[to_email])
             send_email.send()
             messages.success(request, 'Thank you for registrating with us. We have sent you a verification email to your email address. Please verify it.')
-            return redirect('/home')
+            return redirect('/register')
 
+        else:
+            messages.warning(request, 'Invalid Credentials')
     else:
         form =RegistrationForm()
         
-    context= {
-        'form':form,
-    }
-    return render(request, 'main/base.html', context)
+        context= {
+            'form':form,
+        }
+        return render(request, 'main/register.html', context)
 
+
+def login(request):
+    if request.user.is_authenticated:
+        return redirect('/home')
+    
+    else:
+        if request.method == 'POST':
+            email = request.POST['email']
+            password = request.POST['password']
+
+            user = auth.authenticate(email=email, password=password)
+
+            if user is not None:
+                auth.login(request,user)
+                messages.success(request, ', Welcome '+user.username)
+                return HttpResponseRedirect('dashboard')
+                 
+            else:
+                messages.error(request, 'Invalid credentials')
+                return redirect('/login')
+        else:
+            return render(request, 'main/login.html', {})
 
 def activate(request, uidb64, token):
     try:
@@ -90,10 +116,10 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         messages.success(request, 'Congratulations! Your account is activated.')
-        return redirect('/register')
+        return redirect('/login')
     else:
         messages.error(request, 'Invalid activation link')
-        return redirect('/register')
+        return redirect('/login')
 
 
 
@@ -101,3 +127,9 @@ def activate(request, uidb64, token):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))
+
+
+@login_required(login_url = 'home')
+def dashboard(request):
+    
+    return render(request,'main/dashboard.html', {})

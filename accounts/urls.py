@@ -7,7 +7,9 @@ app_name = 'accounts'
 
 urlpatterns = [
     path('register', register, name='register'),
+    path('login', login, name="login"),
     path('logout', user_logout, name='logout'),
     path('activate/<uidb64>/<token>/', activate, name='activate'),
+    path('dashboard', dashboard, name="dashboard"),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

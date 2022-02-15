@@ -1,0 +1,70 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<br><br><br><br><br>
+<div>
+<div style="text-align: center;align-items: center;justify-content: center;">
+    <h2 class="white">Login</h2>
+</div>
+
+{% include 'main/alerts.html' %}
+<div class="container" style="justify-content: center;align-items: center;width: 100%;padding-top: 80px;">
+    <div class="form-area">
+        
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="loginArea" role="tabpanel"
+                aria-labelledby="loginArea-tab">
+                <div class="login-reg-content">
+                    <div>
+                        <div class="form-area">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="single-input col-md-6">
+                                            <label for="logemail">Email</label>
+                                            <input type="email" class="form-control" id="logemail" name="email"
+                                                placeholder="Email Address" style="border-radius: 50px;">
+                                        </div>
+                                        <div class="single-input col-md-6">
+                                            <label for="logpassword">Password</label>
+                                            <input type="password" class="form-control" id="logpassword" name="password"
+                                                placeholder="Password" style="border-radius: 50px;">
+                                        </div>
+                                    </div> <br>
+                                    <div class="">
+                                        <div class="remember-me">
+                                            <label
+                                                class="checkbox-single d-flex align-items-center">
+                                                <span class="left-area">
+                                                    <!-- <span class="checkbox-area d-flex">
+                                                        <input type="checkbox"
+                                                            checked="checked">
+                                                        <span class="checkmark"></span>
+                                                    </span> -->
+                                                    <span
+                                                        class="item-title d-flex align-items-center">
+                                                        <a href="{% url 'forgetpassword' %}">Forgot Password?</a>
+                                                    </span>
+                                                </span>
+                                            </label>
+                                            
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <span class="btn-border w-100">
+                                        <button class="cmn-btn w-100">LOGIN</button>
+                                    </span>
+                                </div>
+                            </form>
+                            <div class="bottom-area text-center">
+                                <p>Not a member ? <a href="{% url 'accounts:register' %}" class="reg-btn">Register</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+    </div>
+</div>
+{% endblock %}

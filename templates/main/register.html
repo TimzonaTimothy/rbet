@@ -1,0 +1,127 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<br><br><br><br><br>
+<div>
+<div style="text-align: center;align-items: center;justify-content: center;">
+    <h2 class="white">Register</h2>
+</div>
+
+{% include 'main/alerts.html' %}
+<div class="container" style="justify-content: center;align-items: center;width: 100%;padding-top: 80px;">
+    <div class="form-area">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="container">
+                <div class="row">
+                    <div class="single-input col-md-6">
+                        <label for="regemail">First Name</label>
+                        {{ form.first_name }}
+                    </div>
+                    <div class="single-input col-md-6">
+                        <label for="regpassword">Last Name</label>
+                        {{ form.last_name }}
+                    </div>
+                    <div class="single-input col-md-6">
+                        <label for="regpassword">Email</label>
+                        {{ form.email }}
+                    </div>
+                    <div  class="single-input col-md-6">
+                        <label for="regpassword">Password</label>
+                        {{ form.password }}
+                    </div>
+                    <div class="single-input col-md-6">
+                        <label for="regpassword">Confirm Password</label>
+                        {{ form.confirm_password }}
+                    </div>
+                    <div class="single_input col-md-6">
+                        <label for="">Referral Code</label>
+                        <input type="text" class="form-control" name='ref_code' placeholder="--optional--">
+                    </div>
+                    <!-- <div class="single-input">
+                        <label>Country</label>
+                        <select>
+                            <option value="1">United States</option>
+                            <option value="2">United Kingdom</option>
+                            <option value="3">Canada</option>
+                        </select>
+                    </div> -->
+                </div>
+                <br>
+                <span class="btn-border w-100">
+                    <button class="cmn-btn w-100">SIGN UP</button>
+                </span>
+            </div>
+        </form>
+        <div class="bottom-area text-center">
+            <p>Already have an member ? <a href="{% url 'accounts:login' %}"
+                    class="log-btn">Login</a></p>
+        </div>
+        
+    </div>
+</div>
+</div>
+{% endblock %}
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="loginArea" role="tabpanel"
+        aria-labelledby="loginArea-tab">
+        <div class="login-reg-content">
+            <div class="modal-body">
+                <div class="head-area">
+                    <h6 class="title">Login Direetly With</h6>
+                    <div class="social-link d-flex align-items-center">
+                        <a href="javascript:void(0)" class="active"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
+                        <a href="javascript:void(0)"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="javascript:void(0)"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="form-area">
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="single-input">
+                                    <label for="logemail">Email</label>
+                                    <input type="text" id="logemail"
+                                        placeholder="Email Address">
+                                </div>
+                                <div class="single-input">
+                                    <label for="logpassword">Password</label>
+                                    <input type="text" id="logpassword"
+                                        placeholder="Email Password">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="remember-me">
+                                    <label
+                                        class="checkbox-single d-flex align-items-center">
+                                        <span class="left-area">
+                                            <span class="checkbox-area d-flex">
+                                                <input type="checkbox"
+                                                    checked="checked">
+                                                <span class="checkmark"></span>
+                                            </span>
+                                            <span
+                                                class="item-title d-flex align-items-center">
+                                                <span>Remember Me</span>
+                                            </span>
+                                        </span>
+                                    </label>
+                                    <a href="javascript:void(0)">Forgot Password</a>
+                                </div>
+                            </div>
+                            <span class="btn-border w-100">
+                                <button class="cmn-btn w-100">LOGIN</button>
+                            </span>
+                        </div>
+                    </form>
+                    <div class="bottom-area text-center">
+                        <p>Not a member ? <a href="javascript:void(0)" class="reg-btn">Register</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

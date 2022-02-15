@@ -1,243 +1,7 @@
-<!doctype html>
-<html lang="en">
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bitbetio - HTML Template</title>
-
-    <link rel="shortcut icon" href="assets/images/fav.png" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/css/jquery-ui.css">
-    <link rel="stylesheet" href="assets/css/plugin/nice-select.css">
-    <link rel="stylesheet" href="assets/css/plugin/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/plugin/slick.css">
-    <link rel="stylesheet" href="assets/css/arafat-font.css">
-    <link rel="stylesheet" href="assets/css/plugin/animate.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-
-<body>
-    <!-- start preloader -->
-    <div class="preloader" id="preloader"></div>
-    <!-- end preloader -->
-
-    <!-- Scroll To Top Start-->
-    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
-    <!-- Scroll To Top End -->
-
-    <!-- header-section start -->
-    <header class="header-section user-dashboard">
-        <div class="overlay">
-            <div class="container">
-                <div class="row d-flex header-area">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="index.html">
-                            <img src="assets/images/logo.png" class="logo" alt="logo">
-                        </a>
-                        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbar-content">
-                            <i class="fas fa-bars"></i>
-                        </button>
-                        <div class="collapse navbar-collapse justify-content-end" id="navbar-content">
-                            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-                                <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
-                                </li>
-                                <li class="nav-item dropdown main-navbar">
-                                    <a class="nav-link dropdown-toggle active" href="javascript:void(0)"
-                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Dashboard</a>
-                                    <ul class="dropdown-menu main-menu shadow">
-                                        <li><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-                                        <li class="dropend sub-navbar">
-                                            <a href="javascript:void(0)" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
-                                              data-bs-auto-close="outside">Setting</a>
-                                            <ul class="dropdown-menu sub-menu shadow">
-                                                <li><a class="nav-link" href="personal-details-setting.html">Personal Details</a></li>
-                                                <li><a class="nav-link" href="modify-login-password.html">Change Password</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown main-navbar">
-                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
-                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Sports</a>
-                                    <ul class="dropdown-menu main-menu shadow">
-                                        <li><a class="nav-link" href="soccer-bets-2.html">Tennis</a></li>
-                                        <li><a class="nav-link" href="soccer-bets-1.html">Soccer</a></li>
-                                        <li><a class="nav-link" href="soccer-bets-2.html">NBA</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown main-navbar">
-                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
-                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Currency</a>
-                                    <ul class="dropdown-menu main-menu shadow">
-                                        <li><a class="nav-link" href="escrow-bets-fee.html">Escrow Bets Fee</a></li>
-                                        <li><a class="nav-link" href="currency-bet.html">Currency Bet</a></li>
-                                        <li><a class="nav-link" href="betting-details.html">Betting Details</a></li>
-                                        <li><a class="nav-link" href="create-new-currency.html">Create Currency</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown main-navbar">
-                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
-                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Pages</a>
-                                    <ul class="dropdown-menu main-menu shadow">
-                                        <li class="dropend sub-navbar">
-                                            <a href="javascript:void(0)" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
-                                              data-bs-auto-close="outside">Tournaments</a>
-                                            <ul class="dropdown-menu sub-menu shadow">
-                                                <li><a class="nav-link" href="tournaments.html">Tournaments</a></li>
-                                                <li><a class="nav-link" href="tournaments-details.html">Tournaments Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropend sub-navbar">
-                                            <a href="javascript:void(0)" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
-                                              data-bs-auto-close="outside">Blog</a>
-                                            <ul class="dropdown-menu sub-menu shadow">
-                                                <li><a class="nav-link" href="blog.html">Blog</a></li>
-                                                <li><a class="nav-link" href="blog-details.html">Blog Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a class="nav-link" href="affiliate.html">Affiliate</a></li>
-                                        <li><a class="nav-link" href="faqs.html">Faqs</a></li>
-                                        <li><a class="nav-link" href="privacy-policy.html">Privacy Policy</a></li>
-                                        <li><a class="nav-link" href="terms-conditions.html">Terms Conditions</a></li>
-                                        <li><a class="nav-link" href="error.html">Error</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
-                                </li>
-                            </ul>
-                            <div class="right-area header-action d-flex align-items-center max-un">
-                                <div class="single-item">
-                                    <select>
-                                        <option value="1">EN</option>
-                                        <option value="1">BN</option>
-                                        <option value="1">DA</option>
-                                    </select>
-                                </div>
-                                <div class="single-item notifications-area">
-                                    <div class="notifications-btn active-dot">
-                                        <img src="assets/images/icon/notifications.png" alt="icon">
-                                        <span class="items">3</span>
-                                    </div>
-                                    <div class="main-area notifications-content">
-                                        <div class="head-area d-flex justify-content-between">
-                                            <div class="left d-flex align-items-center">
-                                                <h5>Notifications</h5>
-                                                <span class="mdr">03</span>
-                                            </div>
-                                            <button class="clear-all">
-                                                <img src="assets/images/icon/cancel-btn.png" alt="icon">
-                                            </button>
-                                        </div>
-                                        <ul>
-                                            <li class="border-area">
-                                                <a href="javascript:void(0)">
-                                                    <div class="img-area">
-                                                        <img src="assets/images/latest-tips-1.png" alt="image">
-                                                    </div>
-                                                    <div class="text-area">
-                                                        <h6>Della Parker</h6>
-                                                        <p class="mdr">+2736 Profit on Horse Racing</p>
-                                                        <p class="mdr time-area">04:20 PM</p>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)" class="active">
-                                                    <div class="img-area">
-                                                        <img src="assets/images/latest-tips-2.png" alt="image">
-                                                    </div>
-                                                    <div class="text-area">
-                                                        <h6>Terasa Estrada</h6>
-                                                        <p class="mdr">+2534 Profit on Football</p>
-                                                        <p class="mdr time-area">03:17 PM</p>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)">
-                                                    <div class="img-area">
-                                                        <img src="assets/images/latest-tips-3.png" alt="image">
-                                                    </div>
-                                                    <div class="text-area">
-                                                        <h6>Tyler Bell</h6>
-                                                        <p class="mdr">+2534 Profit on Football</p>
-                                                        <p class="mdr time-area">05:33 PM</p>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="single-item user-area">
-                                    <div class="user-btn d-flex align-items-center">
-                                        <span class="user-profile">
-                                            <img src="assets/images/dashboard-profile-1.png" alt="icon">
-                                        </span>
-                                        <span class="name-area">Jonh</span>
-                                        <i class="icon-c-down-arrow"></i>
-                                    </div>
-                                    <div class="main-area user-content">
-                                        <div class="head-area d-flex">
-                                            <div class="img-area">
-                                                <img src="assets/images/dashboard-profile-2.png" alt="icon">
-                                            </div>
-                                            <div class="text-area">
-                                                <h5>John Doe</h5>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="assets/images/icon/calendar-icon-2.png" alt="icon">
-                                                    <span>Joined Oct, 2021</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <ul>
-                                            <li class="border-area">
-                                                <a href="javascript:void(0)" class="active">
-                                                    <img src="assets/images/icon/dashboard-icon.png" alt="icon">
-                                                    <p class="mdr">Dashboard</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)">
-                                                    <img src="assets/images/icon/subscriptions-icon.png" alt="icon">
-                                                    <p class="mdr">My Subscriptions</p>
-                                                </a>
-                                            </li>
-                                            <li class="border-area">
-                                                <a href="javascript:void(0)">
-                                                    <img src="assets/images/icon/settings-icon.png" alt="icon">
-                                                    <p class="mdr">Accountring Settings</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)">
-                                                    <img src="assets/images/icon/memberships-icon.png" alt="icon">
-                                                    <p class="mdr">Manage Memberships</p>
-                                                </a>
-                                            </li>
-                                            <li class="border-area">
-                                                <a href="javascript:void(0)">
-                                                    <img src="assets/images/icon/history-icon.png" alt="icon">
-                                                    <p class="mdr">Transaction History</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- header-section end -->
 
     <!-- Dashboard Content Section start -->
     <section class="dashboard-content pt-120">
@@ -292,18 +56,19 @@
                     </div>
                 </div>
             </div>
+            {% include 'main/alerts.html' %}
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="dashboard-sidebar">
                             <div class="single-item">
-                                <img src="assets/images/profile-img-1.png" alt="images">
-                                <h5>Philip Dunn</h5>
+                                <img src="{% static 'assets/images/profile-img-1.png' %}" alt="images">
+                                <h5>{{user.full_name}}</h5>
                                 <p>ID: 32315145</p>
                             </div>
                             <div class="balance">
                                 <div class="single-item">
-                                    <img src="assets/images/icon/dashboard-sidebar-icon-1.png" alt="images">
+                                    <img src="{% static 'assets/images/icon/dashboard-sidebar-icon-1.png' %}" alt="images">
                                     <h5>$5135.00</h5>
                                     <p>Available Balance</p>
                                 </div>
@@ -313,7 +78,7 @@
                                 </div>
                             </div>
                             <div class="single-item">
-                                <img src="assets/images/icon/dashboard-sidebar-icon-2.png" alt="images">
+                                <img src="{% static 'assets/images/icon/dashboard-sidebar-icon-2.png' %}" alt="images">
                                 <h5>Need Help?</h5>
                                 <p class="mdr">Have questions? Our experts are here to help!.</p>
                                 <span class="btn-border">
@@ -329,7 +94,7 @@
                                 <div class="row">
                                     <div class="col-xl-4 col-lg-6">
                                         <div class="single-info">
-                                            <img src="assets/images/icon/user-info-icon-1.png" alt="icon">
+                                            <img src="{% static 'assets/images/icon/user-info-icon-1.png' %}" alt="icon">
                                             <div class="text-area">
                                                 <h4>678</h4>
                                                 <p class="mdr">Total Match</p>
@@ -338,7 +103,7 @@
                                     </div>
                                     <div class="col-xl-4 col-lg-6">
                                         <div class="single-info">
-                                            <img src="assets/images/icon/user-info-icon-2.png" alt="icon">
+                                            <img src="{% static 'assets/images/icon/user-info-icon-2.png' %}" alt="icon">
                                             <div class="text-area">
                                                 <h4>91%</h4>
                                                 <p class="mdr">Win Ratio</p>
@@ -347,7 +112,7 @@
                                     </div>
                                     <div class="col-xl-4 col-lg-6">
                                         <div class="single-info">
-                                            <img src="assets/images/icon/user-info-icon-3.png" alt="icon">
+                                            <img src="{% static 'assets/images/icon/user-info-icon-3.png' %}" alt="icon">
                                             <div class="text-area">
                                                 <h4>22</h4>
                                                 <p class="mdr">Achievements</p>
@@ -372,7 +137,7 @@
                                                         <td>Deposit</td>
                                                         <td>BTC</td>
                                                         <td>
-                                                            <img src="assets/images/icon/dashboard-coin-icon-1.png"
+                                                            <img src="{% static 'assets/images/icon/dashboard-coin-icon-1.png' %}"
                                                                 alt="icon">
                                                             0.00016556
                                                         </td>
@@ -382,7 +147,7 @@
                                                         <td>Withdrawal</td>
                                                         <td>BTC</td>
                                                         <td>
-                                                            <img src="assets/images/icon/dashboard-coin-icon-1.png"
+                                                            <img src="{% static 'assets/images/icon/dashboard-coin-icon-1.png' %}"
                                                                 alt="icon">
                                                             0.00016556
                                                         </td>
@@ -392,7 +157,7 @@
                                                         <td>Refer com.</td>
                                                         <td>USDT</td>
                                                         <td>
-                                                            <img src="assets/images/icon/dashboard-coin-icon-2.png"
+                                                            <img src="{% static 'assets/images/icon/dashboard-coin-icon-2.png' %}"
                                                                 alt="icon">
                                                             13.1072000
                                                         </td>
@@ -402,7 +167,7 @@
                                                         <td>Withdrawal</td>
                                                         <td>BTC</td>
                                                         <td>
-                                                            <img src="assets/images/icon/dashboard-coin-icon-1.png"
+                                                            <img src="{% static 'assets/images/icon/dashboard-coin-icon-1.png' %}"
                                                                 alt="icon">
                                                             0.00016556
                                                         </td>
@@ -412,7 +177,7 @@
                                                         <td>Deposit</td>
                                                         <td>TRX</td>
                                                         <td>
-                                                            <img src="assets/images/icon/dashboard-coin-icon-3.png"
+                                                            <img src="{% static 'assets/images/icon/dashboard-coin-icon-3.png' %}"
                                                                 alt="icon">
                                                             368.033428
                                                         </td>
@@ -422,7 +187,7 @@
                                                         <td>Refer com.</td>
                                                         <td>BTC</td>
                                                         <td>
-                                                            <img src="assets/images/icon/dashboard-coin-icon-1.png"
+                                                            <img src="{% static 'assets/images/icon/dashboard-coin-icon-1.png' %}"
                                                                 alt="icon">
                                                             0.00016556
                                                         </td>
@@ -1304,75 +1069,4 @@
     </div>
     <!-- Betpop Up Modal end -->
 
-    <!-- Footer Area Start -->
-    <footer class="footer-section">
-        <div class="container pt-120">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="newsletter">
-                        <div class="section-text text-center">
-                            <h5 class="sub-title">Subscribe Us</h5>
-                            <h3 class="title">For Newsletter</h3>
-                            <p>Subscribe to our newsletter to receive all the latest news and updates</p>
-                        </div>
-                        <form action="#">
-                            <div class="form-group d-flex align-items-center">
-                                <input type="text" placeholder="Enter your email Address">
-                                <button><img src="assets/images/icon/arrow-right-2.png" alt="icon"></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom-area pt-120">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="menu-item">
-                            <a href="index.html" class="logo">
-                                <img src="assets/images/logo.png" alt="logo">
-                            </a>
-                            <ul class="footer-link">
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="terms-conditions.html">Terms of Services</a></li>
-                                <li><a href="privacy-policy.html">Privacy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="copyright">
-                            <div class="copy-area">
-                                <p> Copyright © <a href="index.html">Bitbetio</a> | Designed by
-                                    <a href="https://themeforest.net/user/pixelaxis" class="auth">Pixelaxis</a>
-                                </p>
-                            </div>
-                            <div class="social-link d-flex align-items-center">
-                                <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
-                                <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
-                                <a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Area End -->
-
-    <!--==================================================================-->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery-ui.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/fontawesome.js"></script>
-    <script src="assets/js/plugin/slick.js"></script>
-    <script src="assets/js/plugin/jquery.nice-select.min.js"></script>
-    <script src="assets/js/plugin/jquery.downCount.js"></script>
-    <script src="assets/js/plugin/counter.js"></script>
-    <script src="assets/js/plugin/waypoint.min.js"></script>
-    <script src="assets/js/plugin/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/plugin/wow.min.js"></script>
-    <script src="assets/js/plugin/plugin.js"></script>
-    <script src="assets/js/main.js"></script>
-</body>
-
-</html>
+ {% endblock %}

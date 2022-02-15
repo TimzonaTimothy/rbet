@@ -113,12 +113,21 @@
                                 </li>
                             </ul>
                             <div class="right-area header-action d-flex align-items-center max-un">
-                                <button type="button" class="login" data-bs-toggle="modal" data-bs-target="#loginMod">
+                                {% if user.is_authenticated %}
+                                <a href="#" type="button" class="login" >
+                                    {{user.username}}
+                                </a>
+                                <a href="{% url 'accounts:logout' %}" type="button" class="cmn-btn reg" >
+                                    Logout
+                                </a>
+                                {% else %}
+                                <a href="{% url 'accounts:login' %}" type="button" class="login" >
                                     Login
-                                </button>
-                                <button type="button" class="cmn-btn reg" data-bs-toggle="modal" data-bs-target="#loginMod">
+                                </a>
+                                <a href="{% url 'accounts:register' %}" type="button" class="cmn-btn reg" >
                                     Sign Up
-                                </button>
+                                </a>
+                                {% endif %}
                             </div>
                         </div>
                     </nav>
@@ -129,204 +138,9 @@
     <!-- header-section end -->
 
     <!-- Login Registration start -->
-    <div class="log-reg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="modal fade" id="loginMod">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header justify-content-center">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <ul class="nav log-reg-btn justify-content-around">
-                                    <li class="bottom-area" role="presentation">
-                                        <button class="nav-link" id="regArea-tab" data-bs-toggle="tab"
-                                            data-bs-target="#regArea" type="button" role="tab" aria-controls="regArea"
-                                            aria-selected="false">
-                                            SIGN UP
-                                        </button>
-                                    </li>
-                                    <li class="bottom-area" role="presentation">
-                                        <button class="nav-link active" id="loginArea-tab" data-bs-toggle="tab"
-                                            data-bs-target="#loginArea" type="button" role="tab"
-                                            aria-controls="loginArea" aria-selected="true">
-                                            LOGIN
-                                        </button>
-                                    </li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div class="tab-pane fade show active" id="loginArea" role="tabpanel"
-                                        aria-labelledby="loginArea-tab">
-                                        <div class="login-reg-content">
-                                            <div class="modal-body">
-                                                <div class="head-area">
-                                                    <h6 class="title">Login Direetly With</h6>
-                                                    <div class="social-link d-flex align-items-center">
-                                                        <a href="javascript:void(0)" class="active"><i
-                                                                class="fab fa-facebook-f"></i></a>
-                                                        <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
-                                                        <a href="javascript:void(0)"><i
-                                                                class="fab fa-linkedin-in"></i></a>
-                                                        <a href="javascript:void(0)"><i
-                                                                class="fab fa-instagram"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="form-area">
-                                                    <form action="#">
-                                                        <div class="row">
-                                                            <div class="col-12">
-                                                                <div class="single-input">
-                                                                    <label for="logemail">Email</label>
-                                                                    <input type="text" id="logemail"
-                                                                        placeholder="Email Address">
-                                                                </div>
-                                                                <div class="single-input">
-                                                                    <label for="logpassword">Password</label>
-                                                                    <input type="text" id="logpassword"
-                                                                        placeholder="Email Password">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <div class="remember-me">
-                                                                    <label
-                                                                        class="checkbox-single d-flex align-items-center">
-                                                                        <span class="left-area">
-                                                                            <span class="checkbox-area d-flex">
-                                                                                <input type="checkbox"
-                                                                                    checked="checked">
-                                                                                <span class="checkmark"></span>
-                                                                            </span>
-                                                                            <span
-                                                                                class="item-title d-flex align-items-center">
-                                                                                <span>Remember Me</span>
-                                                                            </span>
-                                                                        </span>
-                                                                    </label>
-                                                                    <a href="javascript:void(0)">Forgot Password</a>
-                                                                </div>
-                                                            </div>
-                                                            <span class="btn-border w-100">
-                                                                <button class="cmn-btn w-100">LOGIN</button>
-                                                            </span>
-                                                        </div>
-                                                    </form>
-                                                    <div class="bottom-area text-center">
-                                                        <p>Not a member ? <a href="javascript:void(0)" class="reg-btn">Register</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="regArea" role="tabpanel"
-                                        aria-labelledby="regArea-tab">
-                                        <div class="login-reg-content regMode">
-                                            <div class="modal-body">
-                                                <div class="head-area">
-                                                    <h6 class="title">Register On Bitbetio</h6>
-                                                    <div class="social-link d-flex align-items-center">
-                                                        <a href="javascript:void(0)" class="active"><i
-                                                                class="fab fa-facebook-f"></i></a>
-                                                        <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
-                                                        <a href="javascript:void(0)"><i
-                                                                class="fab fa-linkedin-in"></i></a>
-                                                        <a href="javascript:void(0)"><i
-                                                                class="fab fa-instagram"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="form-area">
-                                                    <form action="{% url 'accounts:register' %}" method="POST">
-                                                        {% csrf_token %}
-                                                        <div class="row">
-                                                            <div class="col-12">
-                                                                <div class="single-input">
-                                                                    <label for="regemail">First Name</label>
-                                                                    {{ form.first_name }}
-                                                                </div>
-                                                                <div class="single-input">
-                                                                    <label for="regpassword">Last Name</label>
-                                                                    {{ form.last_name }}
-                                                                </div>
-                                                                <div class="single-input">
-                                                                    <label for="regpassword">Email</label>
-                                                                    {{ form.email }}
-                                                                </div>
-                                                                <div class="single-input">
-                                                                    <label for="regpassword">Password</label>
-                                                                    {{ form.password }}
-                                                                </div>
-                                                                <div class="single-input">
-                                                                    <label for="regpassword">Confirm Password</label>
-                                                                    {{ form.confirm_password }}
-                                                                </div>
-                                                                
-                                                                <!-- <div class="single-input">
-                                                                    <label>Country</label>
-                                                                    <select>
-                                                                        <option value="1">United States</option>
-                                                                        <option value="2">United Kingdom</option>
-                                                                        <option value="3">Canada</option>
-                                                                    </select>
-                                                                </div> -->
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <div class="remember-me">
-                                                                    <details>
-                                                                        <summary>Have a referral
-                                                                        code?</summary>
-                                                                        <div class="single_input">
-                                                                            <input type="text" class="form-control" name='ref_code' placeholder="--optional--">
-                                                                        </div>
-                                                                    </details>
-                                                                    
-                                                                </div>
-                                                            </div>
-                                                            <span class="btn-border w-100">
-                                                                <button class="cmn-btn w-100">SIGN UP</button>
-                                                            </span>
-                                                        </div>
-                                                    </form>
-                                                    <div class="bottom-area text-center">
-                                                        <p>Already have an member ? <a href="javascript:void(0)"
-                                                                class="log-btn">Login</a></p>
-                                                    </div>
-                                                    <div class="counter-area">
-                                                        <div class="single">
-                                                            <div class="icon-area">
-                                                                <img src="assets/images/icon/signup-counter-icon-1.png"
-                                                                    alt="icon">
-                                                            </div>
-                                                            <div class="text-area">
-                                                                <p>25,179k</p>
-                                                                <p class="mdr">Bets</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single">
-                                                            <div class="icon-area">
-                                                                <img src="assets/images/icon/signup-counter-icon-2.png"
-                                                                    alt="icon">
-                                                            </div>
-                                                            <div class="text-area">
-                                                                <p>6.65 BTC</p>
-                                                                <p class="mdr">Total Won</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <!-- Login Registration end -->
-    {% include 'main/alerts.html' %}
+    
 {% block content %} {% endblock %}
 
     <!-- Footer Area Start -->
@@ -366,7 +180,7 @@
                     <div class="col-12">
                         <div class="copyright">
                             <div class="copy-area">
-                                <p> Copyright © <a href="{% url 'home' %}">Bitbetio</a> | Designed by
+                                <p> Copyright © <a href="{% url 'home' %}">Bitbetio</a> | 
                                     <a href="https://themeforest.net/user/pixelaxis" class="auth">Pixelaxis</a>
                                 </p>
                             </div>
